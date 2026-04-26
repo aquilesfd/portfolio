@@ -1,312 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aquiles Fernandes - Developer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aquiffoo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cossette+Texte:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #ffffff;
-            color: #1a1a1a;
-            line-height: 1.6;
-        }
+    body {
+      font-family: 'Cossette Texte', Georgia, serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #fff;
+      padding: 80px 0;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-        header {
-            margin-bottom: 4rem;
-        }
+    .section {
+      margin-bottom: 28px;
+    }
 
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: #e5e7eb;
-            margin-bottom: 1.5rem;
-        }
+    p {
+      margin-bottom: 8px;
+    }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #000;
-        }
+    a {
+      color: #3b7fd4;
+      text-decoration: none;
+    }
 
-        .subtitle {
-            color: #6b7280;
-            font-size: 1rem;
-            margin-bottom: 2rem;
-        }
+    a:hover {
+      text-decoration: underline;
+    }
 
-        .bio {
-            color: #374151;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
+    hr {
+      border: none;
+      border-top: 1px solid #e5e5e5;
+      margin: 36px 0;
+    }
 
-        section {
-            margin-bottom: 4rem;
-        }
+    .intro {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 6px;
+    }
 
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            color: #000;
-        }
+    .intro img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
 
-        h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
+    .intro p {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 0;
+    }
 
-        .skills-section {
-            margin-bottom: 3rem;
-        }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      vertical-align: middle;
+      font-size: 13px;
+      line-height: 1.4;
+      text-decoration: none;
+      color: #1a1a1a;
+      transition: background 0.15s, border-color 0.15s;
+    }
 
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            list-style: none;
-        }
+    .chip-org {
+      background: #f5f5f5;
+      border: 1px solid #e8e8e8;
+      border-radius: 20px;
+      padding: 2px 8px 2px 4px;
+    }
 
-        .skills-list li {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #374151;
-        }
+    .chip-org:hover {
+      background: #ebebeb;
+    }
 
-        .skills-list img {
-            width: 20px;
-            height: 20px;
-        }
+    .chip-org img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
 
-        .projects {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-        }
+    .chip-project {
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-family: inherit;
+    }
 
-        .project {
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 2rem;
-        }
+    .chip-project:hover {
+      border-color: #999;
+    }
 
-        .project:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
+    .date {
+      font-size: 13px;
+      color: #888;
+      margin-left: 4px;
+    }
 
-        .project-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.5rem;
-        }
+    .project-line {
+      margin-bottom: 6px;
+    }
 
-        .project-header span {
-            font-size: 1.5rem;
-        }
+    .icon-lang {
+      width: 17px;
+      height: 17px;
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+      margin-right: 1px;
+    }
 
-        .project h3 {
-            margin-bottom: 0.5rem;
-        }
+    .icon-model {
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+      border-radius: 3px;
+      margin-right: 1px;
+    }
 
-        .project-link {
-            color: #6b7280;
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
+    .twitter-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #3b7fd4;
+      text-decoration: none;
+    }
 
-        .project-link:hover {
-            color: #1a1a1a;
-        }
+    .twitter-link:hover {
+      text-decoration: underline;
+    }
 
-        .project-description {
-            color: #374151;
-            line-height: 1.7;
-        }
+    .twitter-link svg {
+      position: relative;
+      top: -1px;
+    }
 
-        footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid #e5e7eb;
-            color: #6b7280;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 2rem 1.5rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.25rem;
-            }
-        }
-    </style>
+    footer p {
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img class="profile-img" src="https://avatars.githubusercontent.com/u/84942074?v=4" />
-            <h1>Hi, I'm aquiffoo</h1>
-            <p class="subtitle">Aquiles Fernandes • Rio de Janeiro, Brazil</p>
-            
-            <p class="bio">
-                As a junior in high school, I develop tools and systems that focus on simplicity and performance. 
-                I'm interested in mathematics, large language models, and building software that solves real problems 
-                without unnecessary complexity.
-            </p>
-            <p class="bio">
-                Outside of school, I enjoy exploring low-level systems programming and machine learning research, 
-                creating projects that are useful, efficient, and open to everyone.
-            </p>
-        </header>
+  <div class="container">
 
-        <section>
-            <h2>Interests</h2>
-            <p class="bio">
-                Mathematics (trigonometry, algebra, geometry), large language models, web development, 
-                command-line tools, systems programming, and ML research.
-            </p>
-        </section>
-
-        <section>
-            <h2>Technical Skills</h2>
-            
-            <div class="skills-section">
-                <h3>Languages</h3>
-                <ul class="skills-list">
-                    <li>
-                        <img src="https://cdn.simpleicons.org/go" alt="Go">
-                        Go
-                    </li>
-                    <li>
-                        <img src="https://cdn.simpleicons.org/python" alt="Python">
-                        Python
-                    </li>
-                    <li>
-                        <img src="https://cdn.simpleicons.org/rust" alt="Rust">
-                        Rust
-                    </li>
-                    <li>
-                        <img src="https://cdn.simpleicons.org/c" alt="C">
-                        C
-                    </li>
-                    <li>
-                        <img src="https://cdn.simpleicons.org/typescript" alt="TypeScript">
-                        TypeScript
-                    </li>
-                </ul>
-            </div>
-
-            <div class="skills-section">
-                <h3>Tools & Technologies</h3>
-                <ul class="skills-list">
-                    <li>
-                        <img src="https://cdn.simpleicons.org/anthropic" alt="Claude">
-                        Claude Opus 4.5
-                    </li>
-                    <li>
-                        <img src="https://cdn.simpleicons.org/googlegemini" alt="Gemini">
-                        Gemini 3 Flash
-                    </li>
-                    <li>
-                        <img src="https://avatars.githubusercontent.com/u/223098841?s=200&v=4" alt="GLM">
-                        GLM-4.7
-                    </li>
-                    <li>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png" alt="Google Antigravity">
-                        Visual Studio Code
-                    </li>
-                    <li>
-                        <img src="https://images.seeklogo.com/logo-png/40/2/windows-11-icon-logo-png_seeklogo-406208.png" alt="Windows 11">
-                        Windows 11
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Open-Source Projects</h2>
-            <div class="projects">
-                <div class="project">
-                    <div class="project-header">
-                        <span>🏖️</span>
-                        <h3>playa</h3>
-                    </div>
-                    <a href="https://github.com/aquiffoo/playa" class="project-link" target="_blank">github.com/aquiffoo/playa</a>
-                    <p class="project-description">
-                        A minimal video player in the terminal, written in Rust and inspired by the spirit of ffmpeg. 
-                        Designed to bring multimedia capabilities to the command line with simplicity and performance.
-                    </p>
-                </div>
-
-                <div class="project">
-                    <div class="project-header">
-                        <span>🩶</span>
-                        <h3>supermin</h3>
-                    </div>
-                    <a href="https://github.com/aquiffoo/supermin" class="project-link" target="_blank">github.com/aquiffoo/supermin</a>
-                    <p class="project-description">
-                        A C library that makes freeing memory (and sanity) much easier and more intuitive. 
-                        Provides simple abstractions for memory management without sacrificing control.
-                    </p>
-                </div>
-
-                <div class="project">
-                    <div class="project-header">
-                        <span>🍷</span>
-                        <h3>goblet</h3>
-                    </div>
-                    <a href="https://github.com/aquiffoo/goblet" class="project-link" target="_blank">github.com/aquiffoo/goblet</a>
-                    <p class="project-description">
-                        A lightweight Go web framework with a style reminiscent of Flask, but brewed for gophers. 
-                        Focuses on simplicity and idiomatic Go patterns for building web applications.
-                    </p>
-                </div>
-
-                <div class="project">
-                    <div class="project-header">
-                        <span>🚀</span>
-                        <h3>neo-3</h3>
-                    </div>
-                    <a href="https://huggingface.co/collections/aquiffoo/neo-3" class="project-link" target="_blank">huggingface.co/collections/aquiffoo/neo-3</a>
-                    <p class="project-description">
-                        A series of fully open, state-of-the-art small mixture-of-experts models (1B-A90M and 3B-A400M). 
-                        Research focused on efficient model architectures and open-source machine learning.
-                    </p>
-                </div>
-                
-            </div>
-        </section>
-
-        <footer>
-            <p>© 2026 Aquiles Fernandes. All rights reserved.</p>
-        </footer>
+    <div class="section">
+      <div class="intro">
+        <img src="https://avatars.githubusercontent.com/u/84942074?v=4" alt="aquiffoo" />
+        <p>Hi, my name is Aquiles Fernandes, aka aquiffoo 👋</p>
+      </div>
+      <p>I am in my Junior year at high school</p>
     </div>
+
+    <div class="section">
+      <p>I'm interested in mathematics, physics, computer science and large language models</p>
+    </div>
+
+    <div class="section">
+      <p>I've worked at</p>
+      <p>
+        <a class="chip chip-org" href="http://pleroma-labs.com.br" target="_blank">
+          <img src="https://cdn-avatars.huggingface.co/v1/production/uploads/6747320df82ae35f0327cdd3/AhTNWWOZQdKDwgvMwDMUH.png" alt="Pleroma Labs" />
+          Pleroma Labs
+        </a>
+        <span class="date">(04/2026–)</span>
+      </p>
+      <p>
+        <a id="chip-autonomic" class="chip chip-org" href="#" target="_blank">
+          <img src="https://cdn-avatars.huggingface.co/v1/production/uploads/6747320df82ae35f0327cdd3/ibMJ01juSFPT-60TEv6e6.png" alt="Autonomic" />
+          Autonomic
+        </a>
+        <span class="date">(11/2025–)</span>
+      </p>
+      <p>
+        <a id="chip-aqui" class="chip chip-org" href="https://aquigpt.com.br" target="_blank">
+          <img src="https://aquigpt.com.br/aquislt.png" alt="Aqui Solutions" style="filter: brightness(0);" />
+          Aqui Solutions
+        </a>
+        <span class="date">(09/2023–)</span>
+      </p>
+    </div>
+
+    <svg id="absorption-line" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:10;" aria-hidden="true"></svg>
+    <div id="absorption-tooltip" style="position:fixed;display:none;background:#1a1a1a;color:#fff;font-size:12px;padding:5px 10px;border-radius:6px;pointer-events:none;z-index:11;white-space:nowrap;font-family:inherit;">Aqui Solutions was absorbed into Autonomic</div>
+
+    <script>
+      function drawConnector() {
+        const autonomic = document.getElementById('chip-autonomic');
+        const aqui = document.getElementById('chip-aqui');
+        const svg = document.getElementById('absorption-line');
+        const tooltip = document.getElementById('absorption-tooltip');
+
+        if (!autonomic || !aqui) return;
+
+        const r1 = autonomic.getBoundingClientRect();
+        const r2 = aqui.getBoundingClientRect();
+
+        const x1 = r1.left;
+        const y1 = r1.top + r1.height / 2;
+        const x2 = r2.left;
+        const y2 = r2.top + r2.height / 2;
+
+        const cx = x1 - 10;
+
+        const path = `M ${x1} ${y1} C ${cx} ${y1}, ${cx} ${y2}, ${x2} ${y2}`;
+
+        svg.innerHTML = `
+          <path id="connector-path" d="${path}"
+            fill="none"
+            stroke="#ccc"
+            stroke-width="1.5"
+            stroke-dasharray="4 3"
+            stroke-linecap="round"
+            style="pointer-events:stroke;cursor:default;"
+          />
+        `;
+
+        const pathEl = document.getElementById('connector-path');
+
+        pathEl.addEventListener('mouseenter', (e) => {
+          pathEl.setAttribute('stroke', '#999');
+          tooltip.style.display = 'block';
+        });
+
+        pathEl.addEventListener('mousemove', (e) => {
+          tooltip.style.left = (e.clientX + 14) + 'px';
+          tooltip.style.top = (e.clientY - 28) + 'px';
+        });
+
+        pathEl.addEventListener('mouseleave', () => {
+          pathEl.setAttribute('stroke', '#ccc');
+          tooltip.style.display = 'none';
+        });
+      }
+
+      window.addEventListener('load', drawConnector);
+      window.addEventListener('resize', drawConnector);
+      window.addEventListener('scroll', drawConnector);
+    </script>
+
+    <div class="section">
+      <p>
+        I program in
+        <img class="icon-lang" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" />Python,
+        <img class="icon-lang" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" alt="Rust" />Rust,
+        <img class="icon-lang" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" alt="Go" />Go,
+        <img class="icon-lang" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" />C and
+        <img class="icon-lang" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JS" /><img class="icon-lang" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TS" />JS/TS
+      </p>
+      <p>
+        My favorite models to work with are
+        <img class="icon-model" src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="OpenAI" />GPT-5.5,
+        <img class="icon-model" src="https://www.google.com/s2/favicons?domain=kimi.com&sz=32" alt="Kimi" />Kimi K2.6 and
+        <img class="icon-model" src="https://www.google.com/s2/favicons?domain=z.ai&sz=32" alt="z.ai" />GLM-5.1
+      </p>
+      <p>I use Linux on my laptop</p>
+    </div>
+
+    <div class="section">
+      <p>I've built some useful projects</p>
+      <p class="project-line">
+        <a class="chip chip-project" href="https://github.com/aquiffoo/playa" target="_blank">🎬 Playa</a>
+        — a minimal video player that converts your videos to ascii using ffmpeg
+      </p>
+      <p class="project-line">
+        <a class="chip chip-project" href="https://github.com/aquiffoo/goblet" target="_blank">🍵 Goblet</a>
+        — a lightweight and blazingly fast Go framework for server-side web dev
+      </p>
+      <p class="project-line">
+        <a class="chip chip-project" href="https://github.com/aquiffoo/supermin" target="_blank">⚙️ Supermin</a>
+        — a C library that brings easier memory management and intuitive syntax
+      </p>
+    </div>
+
+    <div class="section">
+      <p>And I'm working on some incredible stuff</p>
+      <p class="project-line">
+        <a class="chip chip-project" href="https://aquigpt.com.br/" target="_blank">🤖 AquiGPT</a>
+        — a multi-purpose AI application with all AI models and an Agent that runs on its own computer
+      </p>
+      <p class="project-line">
+        <a class="chip chip-project" href="http://pleroma-labs.com.br/vitrola" target="_blank">📻 Vitrola <span style="font-size:11px;color:#888;">(soon)</span></a>
+        — an AI agent that runs locally and can do anything you can do, commanded through WhatsApp
+      </p>
+    </div>
+
+    <div class="section">
+      <p>
+        I don't use social media except for
+        <a class="twitter-link" href="https://x.com/aquiffoo" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z" fill="currentColor"/>
+          </svg>
+          Twitter
+        </a>,
+        where I post some takes and repost what I find funny
+      </p>
+    </div>
+
+    <hr />
+
+    <footer>
+      <p>Want to say hi? <a href="https://x.com/aquiffoo">Click here.</a></p>
+    </footer>
+
+  </div>
 </body>
 </html>
