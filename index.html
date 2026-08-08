@@ -1,330 +1,257 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aquiles Fernandes — student, programmer, and builder." />
   <title>aquilesfd</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cossette+Texte:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      color-scheme: light;
+      --ink: #181818;
+      --muted: #737373;
+      --line: #e7e7e7;
+      --paper: #ffffff;
+      --soft: #f7f7f5;
+      --link: #175ec1;
     }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Cossette Texte', Georgia, serif;
+      min-width: 320px;
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 16px;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background: #fff;
-      padding: 80px 0;
-    }
-
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .section {
-      margin-bottom: 28px;
-    }
-
-    p {
-      margin-bottom: 8px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
-      color: #3b7fd4;
-      text-decoration: none;
+      color: inherit;
+      text-decoration-color: #c7c7c7;
+      text-underline-offset: 3px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    a:hover { color: var(--link); }
+
+    .page {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) minmax(0, 700px);
+      gap: clamp(40px, 8vw, 150px);
+      width: min(1280px, calc(100% - 48px));
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: clamp(32px, 7vw, 88px) 0 56px;
     }
 
-    hr {
-      border: none;
-      border-top: 1px solid #e5e5e5;
-      margin: 36px 0;
+    .side {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 560px;
+      padding-top: 6px;
+    }
+
+    .identity { display: flex; align-items: center; gap: 12px; }
+
+    .identity img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      filter: grayscale(1);
+    }
+
+    .identity strong { display: block; }
+    .identity span, .side-note { color: var(--muted); }
+
+    .side-nav { display: grid; gap: 8px; margin-top: 38px; }
+    .side-nav a { width: fit-content; text-decoration: none; }
+    .side-nav a::before { content: "↗"; margin-right: 7px; color: var(--muted); }
+
+    main { padding-top: clamp(18px, 5vw, 72px); }
+
+    .eyebrow {
+      margin: 0 0 17px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    h1 {
+      max-width: 56rem;
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.55;
     }
 
     .intro {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 6px;
+      max-width: 540px;
+      margin: 31px 0 0;
+      color: #444;
+      font-size: 1rem;
     }
 
-    .intro img {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
+    section { margin-top: clamp(64px, 10vw, 112px); }
 
-    .intro p {
-      font-size: 20px;
+    h2 {
+      margin: 0 0 18px;
+      font-size: 1rem;
       font-weight: 600;
-      line-height: 1.3;
-      margin: 0;
     }
 
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      vertical-align: middle;
-      font-size: 13px;
-      line-height: 1.4;
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      grid-auto-flow: dense;
+    }
+
+    .project {
+      display: flex;
+      min-height: 172px;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 19px;
+      background: var(--soft);
       text-decoration: none;
-      color: #1a1a1a;
-      transition: background 0.15s, border-color 0.15s;
+      transition: border-color 180ms ease, background 180ms ease;
     }
 
-    .chip-org {
-      background: #f5f5f5;
-      border: 1px solid #e8e8e8;
-      border-radius: 20px;
-      padding: 2px 8px 2px 4px;
+    .project:hover {
+      border-color: #c6c6c6;
+      background: #fff;
+      color: var(--ink);
     }
 
-    .chip-org:hover {
-      background: #ebebeb;
-    }
+    .project-name { font-size: 1rem; font-weight: 600; }
+    .project-type { display: block; margin-top: 3px; color: var(--muted); }
+    .project-url { color: var(--link); overflow-wrap: anywhere; }
+    .soon { color: var(--muted); font-size: 1rem; font-weight: 400; }
 
-    .chip-org img {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .chip-project {
-      border: 1px solid #e0e0e0;
-      border-radius: 6px;
-      padding: 2px 8px;
-      font-family: inherit;
-    }
-
-    .chip-project:hover {
-      border-color: #999;
-    }
-
-    .date {
-      font-size: 13px;
-      color: #888;
-      margin-left: 4px;
-    }
-
-    .project-line {
-      margin-bottom: 6px;
-    }
-
-    .icon-lang {
+    .details { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .details p { margin: 0; color: #444; }
+    .model-list { display: grid; gap: 8px; margin-top: 13px; }
+    .model-list span { display: block; color: var(--ink); }
+    .technology-icon {
       width: 17px;
       height: 17px;
       display: inline-block;
-      vertical-align: middle;
-      position: relative;
-      top: -1px;
-      margin-right: 1px;
-    }
-
-    .icon-model {
-      width: 15px;
-      height: 15px;
-      display: inline-block;
-      vertical-align: middle;
-      position: relative;
-      top: -1px;
+      vertical-align: -3px;
+      margin-right: 3px;
       border-radius: 3px;
-      margin-right: 1px;
     }
 
-    .twitter-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      color: #3b7fd4;
-      text-decoration: none;
+    footer {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: clamp(72px, 12vw, 136px);
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 1rem;
     }
 
-    .twitter-link:hover {
-      text-decoration: underline;
+    @media (max-width: 780px) {
+      .page { display: block; width: min(100% - 40px, 700px); padding-top: 28px; }
+      .side { min-height: 0; }
+      .side-nav { display: none; }
+      .side-note { display: none; }
+      main { padding-top: 52px; }
     }
 
-    .twitter-link svg {
-      position: relative;
-      top: -1px;
-    }
-
-    footer p {
-      font-size: 14px;
-      color: #555;
+    @media (max-width: 520px) {
+      .page { width: min(100% - 32px, 700px); }
+      .projects, .details { grid-template-columns: 1fr; }
+      .details { gap: 28px; }
+      .project { min-height: 145px; }
+      footer { align-items: flex-start; flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-
-    <div class="section">
-      <div class="intro">
-        <img src="https://avatars.githubusercontent.com/u/84942074?v=4" alt="aquilesfd" />
-        <p>Hi, my name is Aquiles Fernandes, aka aquilesfd 👋</p>
+  <div class="page">
+    <aside class="side">
+      <div>
+        <a class="identity" href="/" aria-label="Home">
+          <img src="https://avatars.githubusercontent.com/u/84942074?v=4" alt="Aquiles Fernandes" />
+          <span><strong>aquilesfd</strong> Aquiles Fernandes</span>
+        </a>
+        <nav class="side-nav" aria-label="External links">
+          <a href="https://github.com/aquilesfd" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://x.com/aquilesfd" target="_blank" rel="noreferrer">X / Twitter</a>
+        </nav>
       </div>
-      <p>I am in my Junior year at high school</p>
-    </div>
+      <p class="side-note">Rio de Janeiro, Brazil</p>
+    </aside>
 
-    <div class="section">
-      <p>I'm interested in mathematics, physics, computer science and large language models</p>
-    </div>
+    <main>
+      <header>
+        <p class="eyebrow">Student · Programmer · Builder</p>
+        <h1>I make curious things for the web and beyond.</h1>
+        <p class="intro">I’m in my junior year of high school, interested in mathematics, physics, computer science, and large language models.</p>
+      </header>
 
-    <div class="section">
-      <p>I've worked at</p>
-      <p>
-        <a class="chip chip-org" href="http://tannic.vercel.app" target="_blank">
-          <img src="https://tannic.vercel.app/logo-red.png" alt="Tannic ML" />
-          Tannic ML
-        </a>
-        <span class="date">(08/2026–)</span>
-      </p>
-      <p>
-        <a class="chip chip-org" href="https://bro.app.br" target="_blank">
-          <img src="https://cdn-avatars.huggingface.co/v1/production/uploads/6747320df82ae35f0327cdd3/QpGCmURZbp23z-s6ea0w7.png" alt="Bro" />
-          Bro Industries
-        </a>
-        <span class="date">(05/2026–)</span>
-      </p>
-    </div>
+      <section id="projects" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">I like to build things</h2>
+        <div class="projects">
+          <a class="project" href="https://tannic.vercel.app" target="_blank" rel="noreferrer">
+            <span><span class="project-name">Tannic ML</span><span class="project-type">AI research lab</span></span>
+            <span class="project-url">tannic.vercel.app ↗</span>
+          </a>
+          <a class="project" href="https://bro.app.br" target="_blank" rel="noreferrer">
+            <span><span class="project-name">Bro <small class="soon">[soon]</small></span><span class="project-type">Multi-agent platform</span></span>
+            <span class="project-url">bro.app.br ↗</span>
+          </a>
+          <a class="project" href="https://bro.app.br/paradox" target="_blank" rel="noreferrer">
+            <span><span class="project-name">Paradox <small class="soon">[soon]</small></span><span class="project-type">Science research</span></span>
+            <span class="project-url">bro.app.br/paradox ↗</span>
+          </a>
+          <a class="project" href="https://github.com/aquilesfd/goblet" target="_blank" rel="noreferrer">
+            <span><span class="project-name">Goblet</span><span class="project-type">Go web framework</span></span>
+            <span class="project-url">github.com/aquilesfd/goblet ↗</span>
+          </a>
+        </div>
+      </section>
 
-    <svg id="absorption-line" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:10;" aria-hidden="true"></svg>
-    <div id="absorption-tooltip" style="position:fixed;display:none;background:#1a1a1a;color:#fff;font-size:12px;padding:5px 10px;border-radius:6px;pointer-events:none;z-index:11;white-space:nowrap;font-family:inherit;">Aqui Solutions was absorbed into Autonomic</div>
+      <section class="details" aria-label="About">
+        <div>
+          <h2>Tools</h2>
+          <p>
+            I program in
+            <img class="technology-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="" />Python,
+            <img class="technology-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" alt="" />Rust,
+            <img class="technology-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" alt="" />Go,
+            <img class="technology-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="" />C, and
+            <img class="technology-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" /><img class="technology-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="" />JavaScript / TypeScript.
+            I use Linux on my laptop.
+          </p>
+        </div>
+        <div>
+          <h2>Models</h2>
+          <div class="model-list">
+            <span><img class="technology-icon" src="https://www.google.com/s2/favicons?domain=openai.com&amp;sz=32" alt="OpenAI" />GPT-5.6 Sol</span>
+            <span><img class="technology-icon" src="https://www.google.com/s2/favicons?domain=deepseek.com&amp;sz=32" alt="DeepSeek" />DeepSeek V4 Flash</span>
+            <span><img class="technology-icon" src="https://www.google.com/s2/favicons?domain=kimi.com&amp;sz=32" alt="Kimi" />Kimi K3</span>
+          </div>
+        </div>
+      </section>
 
-    <script>
-      function drawConnector() {
-        const autonomic = document.getElementById('chip-autonomic');
-        const aqui = document.getElementById('chip-aqui');
-        const svg = document.getElementById('absorption-line');
-        const tooltip = document.getElementById('absorption-tooltip');
-
-        if (!autonomic || !aqui) return;
-
-        const r1 = autonomic.getBoundingClientRect();
-        const r2 = aqui.getBoundingClientRect();
-
-        const x1 = r1.left;
-        const y1 = r1.top + r1.height / 2;
-        const x2 = r2.left;
-        const y2 = r2.top + r2.height / 2;
-
-        const cx = x1 - 10;
-
-        const path = `M ${x1} ${y1} C ${cx} ${y1}, ${cx} ${y2}, ${x2} ${y2}`;
-
-        svg.innerHTML = `
-          <path id="connector-path" d="${path}"
-            fill="none"
-            stroke="#ccc"
-            stroke-width="1.5"
-            stroke-dasharray="4 3"
-            stroke-linecap="round"
-            style="pointer-events:stroke;cursor:default;"
-          />
-        `;
-
-        const pathEl = document.getElementById('connector-path');
-
-        pathEl.addEventListener('mouseenter', (e) => {
-          pathEl.setAttribute('stroke', '#999');
-          tooltip.style.display = 'block';
-        });
-
-        pathEl.addEventListener('mousemove', (e) => {
-          tooltip.style.left = (e.clientX + 14) + 'px';
-          tooltip.style.top = (e.clientY - 28) + 'px';
-        });
-
-        pathEl.addEventListener('mouseleave', () => {
-          pathEl.setAttribute('stroke', '#ccc');
-          tooltip.style.display = 'none';
-        });
-      }
-
-      window.addEventListener('load', drawConnector);
-      window.addEventListener('resize', drawConnector);
-      window.addEventListener('scroll', drawConnector);
-    </script>
-
-    <div class="section">
-      <p>
-        I program in
-        <img class="icon-lang" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" />Python,
-        <img class="icon-lang" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" alt="Rust" />Rust,
-        <img class="icon-lang" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" alt="Go" />Go,
-        <img class="icon-lang" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" />C and
-        <img class="icon-lang" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JS" /><img class="icon-lang" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TS" />JS/TS
-      </p>
-      <p>
-        My favorite models to work with are
-        <img class="icon-model" src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="OpenAI" />GPT-5.5,
-        <img class="icon-model" src="https://www.google.com/s2/favicons?domain=kimi.com&sz=32" alt="Kimi" />Kimi K2.6 and
-        <img class="icon-model" src="https://www.google.com/s2/favicons?domain=z.ai&sz=32" alt="z.ai" />GLM-5.1
-      </p>
-      <p>I use Linux on my laptop</p>
-    </div>
-
-    <div class="section">
-      <p>I've built some useful projects</p>
-      <p class="project-line">
-        <a class="chip chip-project" href="https://github.com/aquilesfd/playa" target="_blank">🎬 Playa</a>
-        — a minimal video player that converts your videos to ascii using ffmpeg
-      </p>
-      <p class="project-line">
-        <a class="chip chip-project" href="https://github.com/aquilesfd/goblet" target="_blank">🍵 Goblet</a>
-        — a lightweight and blazingly fast Go framework for server-side web dev
-      </p>
-      <p class="project-line">
-        <a class="chip chip-project" href="https://github.com/aquilesfd/supermin" target="_blank">⚙️ Supermin</a>
-        — a C library that brings easier memory management and intuitive syntax
-      </p>
-    </div>
-
-    <div class="section">
-      <p>And I'm working on some incredible stuff</p>
-      <p class="project-line">
-        <a class="chip chip-project" href="https://aquigpt.com.br/" target="_blank">🤖 Bro</a>
-        — a multi-agent platform for managing and personalizing computer-use AI agents on the fly
-      </p>
-      <p class="project-line">
-        <a class="chip chip-project" href="https://tannic.vercel.app/#family" target="_blank">🕸️ TLM-1 <span style="font-size:11px;color:#888;">(soon)</span></a>
-        — a family of hybrid transformer-JEPA style models that dream at training and inference time
-      </p>
-    </div>
-
-    <div class="section">
-      <p>
-        I don't use social media except for
-        <a class="twitter-link" href="https://x.com/aquilesfd" target="_blank">
-          <svg width="13" height="13" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z" fill="currentColor"/>
-          </svg>
-          Twitter
-        </a>,
-        where I post some takes and repost what I find funny
-      </p>
-    </div>
-
-    <hr />
-
-    <footer>
-      <p>Want to say hi? <a href="https://x.com/aquilesfd">Click here.</a></p>
-    </footer>
-
+      <footer>
+        <span>Want to say hi?</span>
+        <a href="https://x.com/aquilesfd" target="_blank" rel="noreferrer">Find me on X / Twitter ↗</a>
+      </footer>
+    </main>
   </div>
 </body>
 </html>
